@@ -24,6 +24,18 @@ function addTask() {
     };
     listItem.appendChild(strikeBtn);
 
+    // Create an edit button to edit the task
+    const editBtn = document.createElement('button');
+    editBtn.textContent = '✎';
+    editBtn.classList.add('edit-btn');
+    editBtn.onclick = function () {
+        const newText = prompt('Edit your task:', taskSpan.textContent);
+        if (newText !== null && newText.trim() !== '') {
+            taskSpan.textContent = newText;
+        }
+    };
+    listItem.appendChild(editBtn);
+
     // Create a delete button to remove the task
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = '✖';
